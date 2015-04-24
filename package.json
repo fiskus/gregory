@@ -7,10 +7,6 @@
     "url": "git@github.com:Hanse/react-calendar"
   },
   "main": "./lib/index.js",
-  "scripts": {
-    "test": "make test",
-    "prepublish": "make publish"
-  },
   "author": "Hanse",
   "license": "MIT",
   "keywords": [
@@ -18,10 +14,19 @@
     "react.js",
     "calendar",
     "react component",
-    "react calendar component",
-    "clndr"
+    "react calendar component"
   ],
   "devDependencies": {
-    "react-tools": "^0.12.2"
+    "browserify": "^9.0.4",
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.10.0",
+    "gulp-stylus": "^2.0.1",
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-browserify": "^4.1.2",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "moment": "^2.9.0",
+    "react": "^0.13.1"
   }
 }
