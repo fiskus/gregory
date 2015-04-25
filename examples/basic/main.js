@@ -1,16 +1,20 @@
+// vim: set softtabstop=4 shiftwidth=4:
+
+'use strict';
+
 var React = require('react');
-var {Calendar} = require('react-calendar-component');
+var Calendar = require('../../lib/index.js');
 
 require('moment/locale/nb');
 
-function datePicked(date) {
-  console.log(date);
+function onDatePicked(date) {
+    console.log(date);
 }
 
-console.log('Hello World')
-
-React.render(
-  <Calendar showDaysOfWeek={true}
-            onPickDate={datePicked} />,
-  document.getElementById('calendar')
-);
+var wrapper = document.getElementById('calendar');
+var calendarSettings = {
+    onPickDate: onDatePicked,
+    showDaysOfWeek: true
+};
+var calendarElement = React.createElement(Calendar, calendarSettings);
+React.render(calendarElement, wrapper);
