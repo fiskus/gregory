@@ -15,6 +15,7 @@ var wrapper = document.getElementById('calendar');
 var calendarSettings = {
     onPickDate: onDatePicked,
     showDaysOfWeek: true
+    //rootClassName: 'calendar'
 };
 var calendarElement = React.createElement(Calendar, calendarSettings);
 React.render(calendarElement, wrapper);

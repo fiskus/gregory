@@ -23,7 +23,7 @@ body {
   cursor: pointer;
 }
 
-.clndr-controls .current-month {
+.clndr-controls .clndr-current-month {
   width: 40%;
   background: #333;
   color: #fff;
@@ -40,7 +40,7 @@ body {
   background: yellow;
 }
 
-.clndr-grid .days div {
+.clndr-grid .clndr-days div {
   float: left;
   width: 100px;
   height: 50px;
@@ -49,7 +49,7 @@ body {
   border: 1px solid #ddd;
 }
 
-.clndr-grid .day-headers div {
+.clndr-grid .clndr-headers div {
   float: left;
   width: 100px;
   height: 40px;
@@ -57,10 +57,10 @@ body {
   background: #eee;
 }
 
-.prev-month, .next-month {
+.clndr-prev-month, .clndr-next-month {
   color: #ccc;
 }
 
-.clearfix {
+.clndr-clearfix {
   clear: both;
 }
