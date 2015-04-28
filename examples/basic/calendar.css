@@ -100,3 +100,8 @@
 .calendar-day-holiday {
     color: #a90000;
 }
+
+.calendar-day-current {
+    padding: 1px;
+    border: 1px solid #aaa;
+}
