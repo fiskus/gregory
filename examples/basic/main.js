@@ -29,7 +29,7 @@ React.render(clndrElement, clndrWrapper);
 
 var calendarWrapper = document.getElementById('calendar');
 var calendarSettings = {
-    DEFAULT_DATE: new Date('2015-06-12'),
+    DEFAULT_DATE: new Date('2015-05-12'),
     FORCE_SIX_ROWS: false,
     MONTH_FORMAT: 'MMMM YYYY',
     NEXT_TEXT: '',
