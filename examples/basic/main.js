@@ -15,7 +15,7 @@ function onDatePicked(date) {
 var wrapper = document.getElementById('calendar');
 var calendarSettings = {
     DEFAULT_DATE: new Date('2015-02-12'),
-    FORCE_SIX_ROWS: true,
+    FORCE_SIX_ROWS: false,
     MONTH_FORMAT: 'MMM YYYY',
     NEXT_TEXT: 'След',
     ON_PICK_DATE: onDatePicked,
