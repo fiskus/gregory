@@ -1,72 +1,16 @@
-* {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-}
+// vim: set softtabstop=4 shiftwidth=4:
 
 body {
-  font-family: sans-serif;
-  font-size: 16px;
-  color: #444;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #444;
 }
 
 #app {
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
-.clndr-next,
-.clndr-prev,
-.clndr-current-month {
-  background: #999;
-  display: inline-block;
-  width: 30%;
-  padding:5px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.clndr-current-month {
-  width: 40%;
-  background: #333;
-  color: #fff;
-}
-
-.clndr {
-  width: 700px;
-  margin: 0 auto;
-}
-
-.clndr-grid {
-  text-align: center;
-}
-
-.clndr-day {
-  float: left;
-  width: 100px;
-  height: 50px;
-  line-height: 50px;
-  background: #eee;
-  border: 1px solid #ddd;
-}
-
-.clndr-weekday {
-  float: left;
-  width: 100px;
-  height: 40px;
-  line-height: 40px;
-  background: #eee;
-}
-
-.clndr-day-prev-month,
-.clndr-day-next-month {
-  color: #ccc;
-}
-
-.clndr-day-disabled {
-  background: transparent;
-  border-color: transparent;
-}
-
-.clndr-clearfix {
-  clear: both;
+#calendar {
+    width: 700px;
+    margin: 50px auto;
 }

@@ -12,8 +12,8 @@ function onDatePicked(date) {
     console.log(date, date.format('YYYY-MM-DD'));
 }
 
-var wrapper = document.getElementById('calendar');
-var calendarSettings = {
+var clndrWrapper = document.getElementById('clndr');
+var clndrSettings = {
     DEFAULT_DATE: new Date('2015-02-12'),
     FORCE_SIX_ROWS: false,
     MONTH_FORMAT: 'MMM YYYY',
@@ -21,9 +21,24 @@ var calendarSettings = {
     ON_PICK_DATE: onDatePicked,
     PREV_TEXT: 'Пред',
     SHOW_WEEKDAYS: true,
-    NUMBER_OF_MONTHS: 3,
     WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
-    // ROOT_CLASSNAME: 'calendar'
+};
+var clndrElement = React.createElement(Calendar, clndrSettings);
+React.render(clndrElement, clndrWrapper);
+
+
+var calendarWrapper = document.getElementById('calendar');
+var calendarSettings = {
+    DEFAULT_DATE: new Date('2015-06-12'),
+    FORCE_SIX_ROWS: false,
+    MONTH_FORMAT: 'MMMM YYYY',
+    NEXT_TEXT: '',
+    NUMBER_OF_MONTHS: 3,
+    ON_PICK_DATE: onDatePicked,
+    PREV_TEXT: '',
+    ROOT_CLASSNAME: 'calendar',
+    SHOW_WEEKDAYS: true,
+    WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
 };
 var calendarElement = React.createElement(Calendar, calendarSettings);
-React.render(calendarElement, wrapper);
+React.render(calendarElement, calendarWrapper);
