@@ -14,7 +14,9 @@ body {
   margin-top: 50px;
 }
 
-.clndr-controls div {
+.clndr-next,
+.clndr-prev,
+.clndr-current-month {
   background: #999;
   display: inline-block;
   width: 30%;
@@ -23,7 +25,7 @@ body {
   cursor: pointer;
 }
 
-.clndr-controls .clndr-current-month {
+.clndr-current-month {
   width: 40%;
   background: #333;
   color: #fff;
@@ -32,12 +34,10 @@ body {
 .clndr {
   width: 700px;
   margin: 0 auto;
-  background: red;
 }
 
 .clndr-grid {
   text-align: center;
-  background: yellow;
 }
 
 .clndr-day {
@@ -57,9 +57,14 @@ body {
   background: #eee;
 }
 
-.clndr-prev-month,
-.clndr-next-month {
+.clndr-day-prev-month,
+.clndr-day-next-month {
   color: #ccc;
+}
+
+.clndr-day-disabled {
+  background: transparent;
+  border-color: transparent;
 }
 
 .clndr-clearfix {

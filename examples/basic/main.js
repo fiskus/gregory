@@ -21,6 +21,7 @@ var calendarSettings = {
     ON_PICK_DATE: onDatePicked,
     PREV_TEXT: 'Пред',
     SHOW_WEEKDAYS: true,
+    NUMBER_OF_MONTHS: 3,
     WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
     // ROOT_CLASSNAME: 'calendar'
 };
