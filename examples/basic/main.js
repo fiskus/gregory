@@ -14,15 +14,15 @@ function onDatePicked(date) {
 
 var wrapper = document.getElementById('calendar');
 var calendarSettings = {
-    defaultDate: new Date('2015-02-12'),
-    forceSixRows: true,
-    monthFormat: 'MMM YYYY',
-    nextText: 'След',
-    onPickDate: onDatePicked,
-    prevText: 'Пред',
-    showDaysOfWeek: true,
-    weekdays: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
-    // rootClassName: 'calendar'
+    DEFAULT_DATE: new Date('2015-02-12'),
+    FORCE_SIX_ROWS: true,
+    MONTH_FORMAT: 'MMM YYYY',
+    NEXT_TEXT: 'След',
+    ON_PICK_DATE: onDatePicked,
+    PREV_TEXT: 'Пред',
+    SHOW_WEEKDAYS: true,
+    WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+    // ROOT_CLASSNAME: 'calendar'
 };
 var calendarElement = React.createElement(Calendar, calendarSettings);
 React.render(calendarElement, wrapper);
