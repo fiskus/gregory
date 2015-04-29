@@ -8,10 +8,11 @@ $ npm install react-calendar-component
 
 # See the demo
 http://hanse.github.io/react-calendar/
+or [examples directory](https://github.com/fiskus/react-calendar/blob/master/examples/basic/main.js)
 
 ```js
 var React = require('react');
-var Calendar = require('react-calendar-component').Calendar;
+var Calendar = require('react-calendar-component');
 
 function onDatePicked(date) {
   alert(date);
