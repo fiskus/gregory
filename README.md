@@ -30,8 +30,25 @@ React.render(
 
 ```bash
 $ npm install
-$ make
+$ gulp dev
 ```
+
+# Options
+
+* DEFAULT_DATE
+* FORCE_SIX_ROWS
+* MONTH_FORMAT
+* NEXT_TEXT
+* NUMBER_OF_MONTHS
+* ON_PICK_DATE
+* PREV_TEXT
+* ROOT_CLASSNAME
+* SHOW_WEEKDAYS
+* WEEKDAYS
+* MIN_DATE
+* MAX_DATE
+* SELECTS
+* RANGES
 
 # License
 MIT
