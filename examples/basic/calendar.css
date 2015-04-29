@@ -17,13 +17,12 @@
     cursor: pointer;
 }
 
-.calendar-day-before-min,
-.calendar-day-after-max {
+.calendar-day-unselectable {
     color: #ccc;
+    cursor: default;
 }
 
-.calendar-day-holiday.calendar-day-before-min,
-.calendar-day-holiday.calendar-day-after-max {
+.calendar-day-holiday.calendar-day-unselectable {
     color: #a96666;
 }
 
@@ -46,8 +45,13 @@
     cursor: default;
 }
 
-.calendar-day-disabled:hover {
+.calendar-day-unselectable:hover {
+    color: #ccc;
     background: transparent;
+}
+
+.calendar-day-holiday.calendar-day-unselectable:hover {
+    color: #a96666;
 }
 
 .calendar-headers,
