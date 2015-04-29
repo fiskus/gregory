@@ -39,8 +39,15 @@ var calendarSettings = {
     ROOT_CLASSNAME: 'calendar',
     SHOW_WEEKDAYS: true,
     WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
-    MIN_DATE: new Date('2015-05-10'),
-    MAX_DATE: new Date('2015-06-10')
+    MIN_DATE: new Date('2015-06-10'),
+    MAX_DATE: new Date('2015-07-10'),
+    SELECTS: [{
+        DATE: new Date('2015-06-14'),
+        CLASSNAME: 'day-checkin'
+    }, {
+        DATE: new Date('2015-06-18'),
+        CLASSNAME: 'day-checkout'
+    }]
 };
 var calendarElement = React.createElement(Calendar, calendarSettings);
 React.render(calendarElement, calendarWrapper);
