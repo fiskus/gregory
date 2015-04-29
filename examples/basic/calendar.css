@@ -129,3 +129,7 @@
 .calendar-day-checkout {
     border: 1px solid #090;
 }
+
+.calendar-day-range {
+    background: #0ffdef;
+}

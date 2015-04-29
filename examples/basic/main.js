@@ -47,6 +47,11 @@ var calendarSettings = {
     }, {
         DATE: new Date('2015-06-18'),
         CLASSNAME: 'day-checkout'
+    }],
+    RANGES: [{
+        FROM: new Date('2015-06-19'),
+        TO: new Date('2015-06-24'),
+        CLASSNAME: 'day-range'
     }]
 };
 var calendarElement = React.createElement(Calendar, calendarSettings);
