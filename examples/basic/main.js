@@ -38,7 +38,9 @@ var calendarSettings = {
     PREV_TEXT: '',
     ROOT_CLASSNAME: 'calendar',
     SHOW_WEEKDAYS: true,
-    WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+    WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+    MIN_DATE: new Date('2015-05-10'),
+    MAX_DATE: new Date('2015-06-10')
 };
 var calendarElement = React.createElement(Calendar, calendarSettings);
 React.render(calendarElement, calendarWrapper);

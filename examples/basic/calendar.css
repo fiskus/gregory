@@ -17,6 +17,16 @@
     cursor: pointer;
 }
 
+.calendar-day-before-min,
+.calendar-day-after-max {
+    color: #ccc;
+}
+
+.calendar-day-holiday.calendar-day-before-min,
+.calendar-day-holiday.calendar-day-after-max {
+    color: #a96666;
+}
+
 .calendar-day:hover {
     color: #212121;
     background: #def0ff;
