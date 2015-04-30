@@ -28,5 +28,8 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "moment": "^2.9.0",
     "react": "^0.13.1"
+  },
+  "dependencies": {
+    "object-assign": "^2.0.0"
   }
 }
