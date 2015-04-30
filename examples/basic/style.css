@@ -14,3 +14,35 @@ body {
     width: 700px;
     margin: 50px auto;
 }
+
+#inputs {
+    width: 700px;
+    margin: 50px auto;
+    position: relative;
+}
+
+#checkin-calendar .calendar,
+#checkout-calendar .calendar {
+    position: absolute;
+    width: 231px;
+    top: 35px;
+    left: -4px;
+    background: #f5f596;
+}
+
+#checkout-calendar .calendar {
+    left: 226px;
+}
+
+#checkin-calendar .calendar:after,
+#checkout-calendar .calendar:after {
+    content: '';
+    width: 0;
+    heigth: 0;
+    border-style: solid;
+    border-color: transparent transparent #f5f596;
+    border-width: 16px;
+    position: absolute;
+    top: -32px;
+    left: 48%;
+}
