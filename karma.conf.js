@@ -1,5 +1,7 @@
 'use strict';
 
+var envify = require('envify/custom');
+
 // Karma configuration
 // Generated on Sat Apr 11 2015 03:29:41 GMT+0300 (MSK)
 
@@ -63,6 +65,12 @@ module.exports = function(config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false
+        singleRun: false,
+
+        browserify: {
+            transform: [envify({
+                DEBUG: true
+            })]
+        }
     });
 };
