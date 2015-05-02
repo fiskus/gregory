@@ -1,3 +1,5 @@
+// vim: set softtabstop=4 shiftwidth=4 noexpandtab:
+
 'use strict';
 
 var envify = require('envify/custom');
@@ -6,71 +8,71 @@ var envify = require('envify/custom');
 // Generated on Sat Apr 11 2015 03:29:41 GMT+0300 (MSK)
 
 module.exports = function(config) {
-    config.set({
+	config.set({
 
-        // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
-
-
-        // frameworks to use
-        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine', 'browserify'],
+		// base path that will be used to resolve all patterns (eg. files, exclude)
+		basePath: '',
 
 
-        // list of files / patterns to load in the browser
-        files: [
-            'specs/*.spec.js'
-        ],
+		// frameworks to use
+		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+		frameworks: ['jasmine', 'browserify'],
 
 
-        // list of files to exclude
-        exclude: [
-        ],
+		// list of files / patterns to load in the browser
+		files: [
+			'specs/*.spec.js'
+		],
 
 
-        // preprocess matching files before serving them to the browser
-        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
-            'specs/*.js': ['browserify']
-        },
+		// list of files to exclude
+		exclude: [
+		],
 
 
-        // test results reporter to use
-        // possible values: 'dots', 'progress'
-        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+		// preprocess matching files before serving them to the browser
+		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+		preprocessors: {
+			'specs/*.js': ['browserify']
+		},
 
 
-        // web server port
-        port: 9876,
+		// test results reporter to use
+		// possible values: 'dots', 'progress'
+		// available reporters: https://npmjs.org/browse/keyword/karma-reporter
+		reporters: ['progress'],
 
 
-        // enable / disable colors in the output (reporters and logs)
-        colors: true,
+		// web server port
+		port: 9876,
 
 
-        // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_INFO,
+		// enable / disable colors in the output (reporters and logs)
+		colors: true,
 
 
-        // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
+		// level of logging
+		// possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+		logLevel: config.LOG_INFO,
 
 
-        // start these browsers
-        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'],
+		// enable / disable watching file and executing tests whenever any file changes
+		autoWatch: true,
 
 
-        // Continuous Integration mode
-        // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false,
+		// start these browsers
+		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+		browsers: ['PhantomJS'],
 
-        browserify: {
-            transform: [envify({
-                DEBUG: true
-            })]
-        }
-    });
+
+		// Continuous Integration mode
+		// if true, Karma captures browsers, runs the tests and exits
+		singleRun: false,
+
+		browserify: {
+			transform: [envify({
+				DEBUG: true
+			})]
+		}
+	});
 };
