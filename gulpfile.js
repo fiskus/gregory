@@ -7,6 +7,8 @@ var stylus = require('gulp-stylus');
 var browserify = require('browserify');
 var jshint = require('gulp-jshint');
 var karma = require('karma').server;
+var jscs = require('gulp-jscs');
+var stylish = require('gulp-jscs-stylish');
 
 gulp.task('stylus', function() {
     gulp.src('./styl/app.styl')
@@ -39,6 +41,13 @@ gulp.task('lint', function () {
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(jshint.reporter('fail'));
+});
+
+gulp.task('cs', function () {
+    gulp.src('./lib/*.js')
+        .pipe(jscs())
+        .pipe(stylish.combineWithHintResults())
+        .pipe(jshint.reporter('default'));
 });
 
 gulp.task('test', function (done) {
