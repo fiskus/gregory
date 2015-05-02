@@ -1,5 +1,7 @@
 # react-calendar
 
+[![Build Status](https://travis-ci.org/fiskus/react-calendar.svg?branch=master)](https://travis-ci.org/fiskus/react-calendar)
+
 [React](http://facebook.github.io/react/) calendar component inspired by [CLNDR.js](http://kylestetz.github.io/CLNDR/).
 
 ```
