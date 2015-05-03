@@ -1,6 +1,8 @@
 # react-calendar
 
 [![Build Status](https://travis-ci.org/fiskus/react-calendar.svg?branch=master)](https://travis-ci.org/fiskus/react-calendar)
+[![Davis Dependency status](https://david-dm.org/fiskus/react-calendar.svg)](https://david-dm.org/fiskus/react-calendar)
+[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
 [React](http://facebook.github.io/react/) calendar component inspired by [CLNDR.js](http://kylestetz.github.io/CLNDR/).
 
