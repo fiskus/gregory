@@ -43,7 +43,7 @@ There are three categories of options
 
 ## UI options
 
-* `UI_FORMAT_MONTH` sets format of current month at header ([See moment.js documentation](http://momentjs.com/docs/#/displaying/format/)
+* `UI_FORMAT_MONTH` sets format of current month at header ([See moment.js documentation](http://momentjs.com/docs/#/displaying/format/))
 * `UI_HAS_SIX_ROWS` sets showing of six rows always even for February
 * `UI_HAS_WEEKDAYS` sets visibility of header with weekdays captions
 * `UI_MONTHS_NUMBER` sets number of months
