@@ -1,13 +1,17 @@
 {
   "name": "react-calendar-component",
-  "version": "0.2.1",
+  "version": "0.2.9",
   "description": "React.js calendar component.",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Hanse/react-calendar"
+    "url": "git@github.com:fiskus/react-calendar"
   },
   "main": "./lib/index.js",
   "author": "Hanse",
+  "contributors": [{
+      "name": "Maxim Chervonny",
+      "email": "fiskus@chervonny.ru"
+  }],
   "license": "MIT",
   "keywords": [
     "react",
