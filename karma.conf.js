@@ -71,7 +71,7 @@ module.exports = function(config) {
 
 		browserify: {
 			transform: [envify({
-				DEBUG: true
+				TESTING: true
 			})]
 		}
 	});
