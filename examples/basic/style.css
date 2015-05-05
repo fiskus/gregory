@@ -11,7 +11,7 @@ body {
 }
 
 #calendar {
-	width: 700px;
+	width: 692px;
 	margin: 50px auto;
 }
 
@@ -28,6 +28,8 @@ body {
 	top: 35px;
 	left: -4px;
 	background: #f5f596;
+	padding: 6px;
+	border-radius: 4px;
 }
 
 #checkout-calendar .calendar {
@@ -45,4 +47,9 @@ body {
 	position: absolute;
 	top: -32px;
 	left: 48%;
+}
+
+#checkout-calendar .calendar-current-date {
+	color: #ccc;
+	border-radius: 4px;
 }
