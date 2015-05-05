@@ -1,5 +1,6 @@
-* Проинспектировать settings, назвать все свойства единобразно
 * Unit-testing
 * Contributing
-* Больше примеров
+* More examples
+* npm-package
 * bower compatible
+* div-wrapper for week
