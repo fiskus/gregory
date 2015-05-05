@@ -17,15 +17,15 @@ describe('Helpers', function () {
 
 	it('getClassName', function() {
 		expect(H.getClassName({
-			ROOT_CLASSNAME: 'clndr'
+			CLASSNAME: 'clndr'
 		})).toBe('clndr');
 
 		expect(H.getClassName({
-			ROOT_CLASSNAME: 'clndr'
+			CLASSNAME: 'clndr'
 		}, 'keke')).toBe('clndr-keke');
 
 		expect(H.getClassName({
-			ROOT_CLASSNAME: 'clndr'
+			CLASSNAME: 'clndr'
 		}, ['kekeke', 'ololo'])).toBe('clndr-kekeke clndr-ololo');
 	});
 

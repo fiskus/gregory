@@ -1,4 +1,4 @@
-// vim: set softtabstop=4 shiftwidth=4 noexpandtab:
+// vim: set noexpandtab:
 
 'use strict';
 
@@ -9,20 +9,20 @@ var Calendar = require('../../lib/index.js');
 require('moment/locale/ru');
 
 function onDatePicked(date) {
-	console.log(date, date.format('YYYY-MM-DD'));
+	console.log(date, date.format('YYYY-MM-DD'), date);
 }
 
 function initSingleMonthUglyCalendar () {
 	var wrapper = document.getElementById('clndr');
 	var settings = {
-		DEFAULT_DATE: new Date('2015-02-12'),
-		FORCE_SIX_ROWS: false,
-		MONTH_FORMAT: 'MMM YYYY',
-		NEXT_TEXT: 'След',
-		ON_PICK_DATE: onDatePicked,
-		PREV_TEXT: 'Пред',
-		SHOW_WEEKDAYS: true,
-		WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+		DATE_CURRENT: new Date('2015-02-12'),
+		UI_HAS_SIX_ROWS: false,
+		UI_FORMAT_MONTH: 'MMM YYYY',
+		UI_TEXT_NEXT: 'След',
+		ON_SELECT: onDatePicked,
+		UI_TEXT_PREV: 'Пред',
+		UI_HAS_WEEKDAYS: true,
+		UI_WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
 	};
 	var element = React.createElement(Calendar, settings);
 	React.render(element, wrapper);
@@ -31,30 +31,30 @@ function initSingleMonthUglyCalendar () {
 function initTrilpeMonthCalendar () {
 	var wrapper = document.getElementById('calendar');
 	var settings = {
-		DEFAULT_DATE: new Date('2015-05-12'),
-		FORCE_SIX_ROWS: false,
-		MONTH_FORMAT: 'MMMM YYYY',
-		NEXT_TEXT: '',
-		NUMBER_OF_MONTHS: 3,
-		ON_PICK_DATE: onDatePicked,
-		PREV_TEXT: '',
-		ROOT_CLASSNAME: 'calendar',
-		SHOW_WEEKDAYS: true,
-		WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
-		MIN_DATE: new Date('2015-06-10'),
-		MAX_DATE: new Date('2015-07-10'),
-		SELECTS: [{
+		CLASSNAME: 'calendar',
+		DATE_CURRENT: new Date('2015-05-12'),
+		UI_HAS_SIX_ROWS: false,
+		UI_FORMAT_MONTH: 'MMMM YYYY',
+		UI_TEXT_NEXT: '',
+		UI_MONTHS_NUMBER: 3,
+		ON_SELECT: onDatePicked,
+		UI_TEXT_PREV: '',
+		UI_HAS_WEEKDAYS: true,
+		UI_WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+		DATE_MIN: new Date('2015-06-10'),
+		DATE_MAX: new Date('2015-07-10'),
+		DATE_SELECTS: [{
 			DATE: new Date('2015-06-14'),
 			CLASSNAME: 'day-checkin'
 		}, {
 			DATE: new Date('2015-06-18'),
 			CLASSNAME: 'day-checkout'
 		}],
-			RANGES: [{
-				FROM: new Date('2015-06-19'),
-				TO: new Date('2015-06-24'),
-				CLASSNAME: 'day-range'
-			}]
+		DATE_RANGES: [{
+			FROM: new Date('2015-06-19'),
+			TO: new Date('2015-06-24'),
+			CLASSNAME: 'day-range'
+		}]
 	};
 	var element = React.createElement(Calendar, settings);
 	React.render(element, wrapper);
@@ -63,10 +63,10 @@ function initTrilpeMonthCalendar () {
 function initPopup (input, wrapper) {
 	input.addEventListener('focus', function() {
 		var element = React.createElement(Calendar, {
-			ROOT_CLASSNAME: 'calendar',
-			PREV_TEXT: '',
-			NEXT_TEXT: '',
-			ON_PICK_DATE: function(date) {
+			CLASSNAME: 'calendar',
+			UI_TEXT_PREV: '',
+			UI_TEXT_NEXT: '',
+			ON_SELECT: function(date) {
 				wrapper.removeChild(wrapper.firstElementChild);
 				input.value = date.format('DD MMMM YYYY');
 			}

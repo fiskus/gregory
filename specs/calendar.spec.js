@@ -16,7 +16,7 @@ describe('Calendar', function () {
 
 	it('getInitialDate, set', function() {
 		expect(C.getInitialDate({
-			DEFAULT_DATE: new Date('2015-04-30')
+			DATE_CURRENT: new Date('2015-04-30')
 		}).isSame(moment('30-04-2015', 'DD-MM-YYYY'), 'day')).toBe(true);
 	});
 });

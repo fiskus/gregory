@@ -53,11 +53,11 @@ describe('Day', function () {
 	it('isCurrent', function() {
 		expect(Day.isCurrent({
 			DAY: moment('30-04-2015', 'DD-MM-YYYY'),
-			DEFAULT_DATE: moment('30-04-2015', 'DD-MM-YYYY')
+			DATE_CURRENT: moment('30-04-2015', 'DD-MM-YYYY')
 		})).toBe(true);
 		expect(Day.isCurrent({
 			DAY: moment('30-05-2015', 'DD-MM-YYYY'),
-			DEFAULT_DATE: moment('30-03-2015', 'DD-MM-YYYY')
+			DATE_CURRENT: moment('30-03-2015', 'DD-MM-YYYY')
 		})).toBe(false);
 	});
 
