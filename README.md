@@ -6,7 +6,7 @@
 
 [React](http://facebook.github.io/react/) calendar component inspired by [CLNDR.js](http://kylestetz.github.io/CLNDR/).
 
-# [Examples](https://github.com/fiskus/react-calendar/blob/master/examples/basic/main.js)
+# [Examples](examples/basic/main.js)
 
 ```js
 var React = require('react');
