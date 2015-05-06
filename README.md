@@ -59,7 +59,7 @@ $ gulp dev # build code with examples
 $ gulp tdd # tests watcher
 ```
 
-* Tabs for indentation
+* 4 spaces for indentation
 * No classes or prototypes, just functions
 * If function should use this.props, pass it as first argument
 * Priority: simplicity > consistency > performance
