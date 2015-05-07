@@ -1,10 +1,10 @@
 {
-  "name": "react-calendar-component",
-  "version": "0.2.9",
+  "name": "gregory",
+  "version": "0.2.11",
   "description": "React.js calendar component.",
   "repository": {
     "type": "git",
-    "url": "git@github.com:fiskus/react-calendar"
+    "url": "git@github.com:fiskus/gregory"
   },
   "main": "./lib/index.js",
   "author": "Hanse",
