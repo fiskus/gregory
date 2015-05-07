@@ -39,5 +39,5 @@
     "safeContextKeyword": ["that"],
     "validateLineBreaks": "LF",
     "validateQuoteMarks": "'",
-    "validateIndentation": "\t"
+    "validateIndentation": 4
 }
