@@ -65,4 +65,42 @@ gulp.task('tdd', function (done) {
     }, done);
 });
 
-gulp.task('default', ['stylus', 'js']);
+gulp.task('build:bare', function () {
+    browserify('./lib/external.js')
+        .exclude('react')
+        .exclude('moment')
+        .bundle()
+        .pipe(fs.createWriteStream('./dist/gregory.js'));
+});
+
+gulp.task('build:with-react', function () {
+    browserify('./lib/external.js')
+        .exclude('moment')
+        .bundle()
+        .pipe(fs.createWriteStream('./dist/gregory-react.js'));
+});
+
+gulp.task('build:with-moment', function () {
+    browserify('./lib/external.js')
+        .exclude('react')
+        .bundle()
+        .pipe(fs.createWriteStream('./dist/gregory-moment.js'));
+});
+
+gulp.task('build:full', function () {
+    browserify('./lib/external.js')
+        .bundle()
+        .pipe(fs.createWriteStream('./dist/gregory-react-moment.js'));
+});
+
+gulp.task('build', [
+    'build:bare',
+    'build:with-react',
+    'build:with-moment',
+    'build:full'
+]);
+
+gulp.task('default', [
+    'stylus',
+    'js'
+]);

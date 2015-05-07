@@ -8,10 +8,12 @@
   },
   "main": "./lib/index.js",
   "author": "Hanse",
-  "contributors": [{
+  "contributors": [
+    {
       "name": "Maxim Chervonny",
       "email": "fiskus@chervonny.ru"
-  }],
+    }
+  ],
   "license": "MIT",
   "keywords": [
     "react",
@@ -35,8 +37,11 @@
     "karma-phantomjs-launcher": "^0.1.4"
   },
   "dependencies": {
+    "array-foreach": "^1.0.1",
+    "array-map": "0.0.0",
     "moment": "^2.9.0",
     "object-assign": "^2.0.0",
+    "object-keys": "^1.0.3",
     "react": "^0.13.1"
   },
   "scripts": {

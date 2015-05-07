@@ -2,11 +2,7 @@
 
 'use strict';
 
-var React = require('react');
-
-var Calendar = require('../../lib/index.js');
-
-require('moment/locale/ru');
+moment.locale('ru');
 
 function onDatePicked(date) {
     console.log(date, date.format('YYYY-MM-DD'), date);
@@ -24,7 +20,7 @@ function initSingleMonthUglyCalendar () {
         UI_HAS_WEEKDAYS: true,
         UI_WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
     };
-    var element = React.createElement(Calendar, settings);
+    var element = React.createElement(Gregory, settings);
     React.render(element, wrapper);
 }
 
@@ -56,13 +52,13 @@ function initTrilpeMonthCalendar () {
             CLASSNAME: 'day-range'
         }]
     };
-    var element = React.createElement(Calendar, settings);
+    var element = React.createElement(Gregory, settings);
     React.render(element, wrapper);
 }
 
 function initPopup (input, wrapper) {
     input.addEventListener('focus', function() {
-        var element = React.createElement(Calendar, {
+        var element = React.createElement(Gregory, {
             CLASSNAME: 'calendar',
             UI_TEXT_PREV: '',
             UI_TEXT_NEXT: '',
