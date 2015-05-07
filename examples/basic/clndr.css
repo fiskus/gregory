@@ -1,74 +1,74 @@
 // vim: set softtabstop=4 shiftwidth=4 noexpandtab:
 
 .clndr-controls {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .clndr-next {
-	float: right;
+    float: right;
 }
 
 .clndr-prev {
-	float: left;
+    float: left;
 }
 
 .clndr-next,
 .clndr-prev {
-	background: #999;
-	padding:5px 30px;
-	text-align: center;
-	cursor: pointer;
+    background: #999;
+    padding:5px 30px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .clndr-current-date {
-	background: #999;
-	padding:5px;
-	text-align: center;
-	cursor: pointer;
+    background: #999;
+    padding:5px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .clndr-current-month {
-	width: 40%;
-	background: #333;
-	color: #fff;
+    width: 40%;
+    background: #333;
+    color: #fff;
 }
 
 .clndr {
-	width: 700px;
-	margin: 0 auto;
+    width: 700px;
+    margin: 0 auto;
 }
 
 .clndr-grid {
-	text-align: center;
+    text-align: center;
 }
 
 .clndr-day {
-	float: left;
-	width: 98px;
-	height: 50px;
-	line-height: 50px;
-	background: #eee;
-	border: 1px solid #ddd;
+    float: left;
+    width: 98px;
+    height: 50px;
+    line-height: 50px;
+    background: #eee;
+    border: 1px solid #ddd;
 }
 
 .clndr-weekday {
-	float: left;
-	width: 100px;
-	height: 40px;
-	line-height: 40px;
-	background: #eee;
+    float: left;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    background: #eee;
 }
 
 .clndr-day-prev-month,
 .clndr-day-next-month {
-	color: #ccc;
+    color: #ccc;
 }
 
 .clndr-day-disabled {
-	background: transparent;
-	border-color: transparent;
+    background: transparent;
+    border-color: transparent;
 }
 
 .clndr-clearfix {
-	clear: both;
+    clear: both;
 }

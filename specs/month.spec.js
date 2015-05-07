@@ -1,4 +1,4 @@
-// vim: set softtabstop=4 shiftwidth=4 noexpandtab:
+// vim: set noexpandtab:
 
 'use strict';
 
@@ -6,6 +6,6 @@
 require('../lib/bindshim.js');
 
 describe('Month', function () {
-	xit('smthg', function () {
-	});
+    xit('smthg', function () {
+    });
 });
