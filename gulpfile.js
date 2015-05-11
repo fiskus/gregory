@@ -11,6 +11,7 @@ var jshint = require('gulp-jshint');
 var karma = require('karma').server;
 var jscs = require('gulp-jscs');
 var stylish = require('gulp-jscs-stylish');
+var envify = require('envify');
 
 gulp.task('stylus', function() {
     gulp.src('./styl/app.styl')
@@ -25,6 +26,7 @@ gulp.task('watch-stylus', function () {
 
 gulp.task('js', function () {
     browserify('./examples/basic/main.js')
+        .transform(envify())
         .bundle()
         .pipe(fs.createWriteStream('./examples/basic/bundle.js'));
 });
@@ -69,6 +71,7 @@ gulp.task('build:bare', function () {
     browserify('./lib/external.js')
         .exclude('react')
         .exclude('moment')
+        .transform(envify())
         .bundle()
         .pipe(fs.createWriteStream('./dist/gregory.js'));
 });
@@ -76,6 +79,7 @@ gulp.task('build:bare', function () {
 gulp.task('build:with-react', function () {
     browserify('./lib/external.js')
         .exclude('moment')
+        .transform(envify())
         .bundle()
         .pipe(fs.createWriteStream('./dist/gregory-react.js'));
 });
@@ -83,12 +87,14 @@ gulp.task('build:with-react', function () {
 gulp.task('build:with-moment', function () {
     browserify('./lib/external.js')
         .exclude('react')
+        .transform(envify())
         .bundle()
         .pipe(fs.createWriteStream('./dist/gregory-moment.js'));
 });
 
 gulp.task('build:full', function () {
     browserify('./lib/external.js')
+        .transform(envify())
         .bundle()
         .pipe(fs.createWriteStream('./dist/gregory-react-moment.js'));
 });
