@@ -98,6 +98,13 @@ gulp.task('build', [
     'build:full'
 ]);
 
+gulp.task('examples', [
+	'stylus',
+	'js',
+	'jade',
+	'build'
+]);
+
 gulp.task('default', [
     'stylus',
     'js'
