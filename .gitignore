@@ -4,3 +4,4 @@ npm-debug.log
 .tern-port
 bower_components/
 examples/_build
+.*.swp

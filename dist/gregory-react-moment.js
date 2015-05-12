@@ -441,7 +441,7 @@ module.exports = {
 
 },{"array-foreach":9,"array-map":10,"object-assign":13,"object-keys":14}],6:[function(require,module,exports){
 // jshint undef: false
-module.exports = moment || require('moment');
+module.exports = typeof moment === 'undefined' ? require('moment') : moment;
 
 },{"moment":12}],7:[function(require,module,exports){
 (function (process){
@@ -619,7 +619,7 @@ if (process.env.TESTING) {
 }).call(this,require('_process'))
 },{"./day.js":4,"./helpers.js":5,"./moment-loader.js":6,"./react-loader.js":8,"_process":11}],8:[function(require,module,exports){
 // jshint undef: false
-module.exports = React || require('react');
+module.exports = typeof React === 'undefined' ? require('react') : React;
 
 },{"react":170}],9:[function(require,module,exports){
 /**

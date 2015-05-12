@@ -15,9 +15,9 @@ var envify = require('envify');
 var jade = require('gulp-jade');
 
 gulp.task('stylus', function() {
-    gulp.src('./styl/app.styl')
+    gulp.src('./examples/*.styl')
         .pipe(stylus())
-        .pipe(gulp.dest('./public/css'));
+        .pipe(gulp.dest('./examples/_build'));
 });
 
 gulp.task('watch-stylus', function () {
@@ -85,21 +85,6 @@ gulp.task('build:bare', function () {
         .bundle()
         .pipe(fs.createWriteStream('./dist/gregory.js'));
 });
-
-gulp.task('build:with-react', function () {
-    browserify('./lib/external.js')
-        .exclude('moment')
-        .transform(envify)
-        .bundle()
-        .pipe(fs.createWriteStream('./dist/gregory-react.js'));
-});
-
-gulp.task('build:with-moment', function () {
-    browserify('./lib/external.js')
-        .exclude('react')
-        .transform(envify)
-        .bundle()
-        .pipe(fs.createWriteStream('./dist/gregory-moment.js'));
 });
 
 gulp.task('build:full', function () {
