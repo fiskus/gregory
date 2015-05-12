@@ -28,15 +28,15 @@ gulp.task('watch-stylus', function () {
 gulp.task('js', function () {
     var exampleNames = ['single', 'triple', 'popup'];
     exampleNames.forEach(function(name) {
-        browserify('./examples/' + name + '/' + name + '.js')
+        browserify('./examples/' + name + '.js')
             .transform(envify)
             .bundle()
-            .pipe(fs.createWriteStream('./examples/' + name + '/' + name + '-bundle.js'));
+            .pipe(fs.createWriteStream('./examples/_build/' + name + '-bundle.js'));
     });
 });
 
 gulp.task('watch-js', function () {
-    gulp.watch(['./lib/*.js', './examples/basic/main.js'],
+    gulp.watch(['./lib/*.js', './examples/*.js'],
                ['js']);
 });
 
@@ -74,7 +74,7 @@ gulp.task('tdd', function (done) {
 gulp.task('jade', function () {
     gulp.src('./examples/*.jade')
         .pipe(jade())
-        .pipe(gulp.dest('./examples/'));
+        .pipe(gulp.dest('./examples/_build/'));
 });
 
 gulp.task('build:bare', function () {

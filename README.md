@@ -8,7 +8,7 @@
 
 ## Name
 
-There is no good and vacant names, so: calendar -> Gregorian calendar -> Gregory.
+There is no good and vacant names, so: calendar → Gregorian calendar → Gregory.
 
 ## [Examples](examples/basic/main.js)
 
