@@ -1,0 +1,18 @@
+// vim: set sw=4 ts=4 noexpandtab:
+doctype html
+html
+    head
+        link(rel='stylesheet', href='basic/style.css')
+        link(rel='stylesheet', href='basic/calendar.css')
+        script(src='../bower_components/react/react.min.js')
+        script(src='../bower_components/moment/min/moment-with-locales.min.js')
+        script(src='../dist/gregory.js')
+        meta(charset='utf-8')
+        title Popup calendar
+body
+    #inputs
+        input(type='text', id='checkin' placeholder='Start date (click me)')
+        input(type='text', id='checkout', placeholder='End date (click me)')
+        #checkin-calendar
+        #checkout-calendar
+    script(src='./popup-bundle.js')

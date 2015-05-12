@@ -12,6 +12,7 @@ var karma = require('karma').server;
 var jscs = require('gulp-jscs');
 var stylish = require('gulp-jscs-stylish');
 var envify = require('envify');
+var jade = require('gulp-jade');
 
 gulp.task('stylus', function() {
     gulp.src('./styl/app.styl')
@@ -25,10 +26,13 @@ gulp.task('watch-stylus', function () {
 });
 
 gulp.task('js', function () {
-    browserify('./examples/basic/main.js')
-        .transform(envify())
-        .bundle()
-        .pipe(fs.createWriteStream('./examples/basic/bundle.js'));
+    var exampleNames = ['single', 'triple', 'popup'];
+    exampleNames.forEach(function(name) {
+        browserify('./examples/' + name + '/' + name + '.js')
+            .transform(envify)
+            .bundle()
+            .pipe(fs.createWriteStream('./examples/' + name + '/' + name + '-bundle.js'));
+    });
 });
 
 gulp.task('watch-js', function () {
@@ -67,11 +71,17 @@ gulp.task('tdd', function (done) {
     }, done);
 });
 
+gulp.task('jade', function () {
+    gulp.src('./examples/*.jade')
+        .pipe(jade())
+        .pipe(gulp.dest('./examples/'));
+});
+
 gulp.task('build:bare', function () {
     browserify('./lib/external.js')
         .exclude('react')
         .exclude('moment')
-        .transform(envify())
+        .transform(envify)
         .bundle()
         .pipe(fs.createWriteStream('./dist/gregory.js'));
 });
@@ -79,7 +89,7 @@ gulp.task('build:bare', function () {
 gulp.task('build:with-react', function () {
     browserify('./lib/external.js')
         .exclude('moment')
-        .transform(envify())
+        .transform(envify)
         .bundle()
         .pipe(fs.createWriteStream('./dist/gregory-react.js'));
 });
@@ -87,14 +97,14 @@ gulp.task('build:with-react', function () {
 gulp.task('build:with-moment', function () {
     browserify('./lib/external.js')
         .exclude('react')
-        .transform(envify())
+        .transform(envify)
         .bundle()
         .pipe(fs.createWriteStream('./dist/gregory-moment.js'));
 });
 
 gulp.task('build:full', function () {
     browserify('./lib/external.js')
-        .transform(envify())
+        .transform(envify)
         .bundle()
         .pipe(fs.createWriteStream('./dist/gregory-react-moment.js'));
 });
