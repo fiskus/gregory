@@ -85,7 +85,6 @@ gulp.task('build:bare', function () {
         .bundle()
         .pipe(fs.createWriteStream('./dist/gregory.js'));
 });
-});
 
 gulp.task('build:full', function () {
     browserify('./lib/external.js')
@@ -96,8 +95,6 @@ gulp.task('build:full', function () {
 
 gulp.task('build', [
     'build:bare',
-    'build:with-react',
-    'build:with-moment',
     'build:full'
 ]);
 
