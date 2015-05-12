@@ -13,6 +13,7 @@ var jscs = require('gulp-jscs');
 var stylish = require('gulp-jscs-stylish');
 var envify = require('envify');
 var jade = require('gulp-jade');
+var connect = require('gulp-connect');
 
 gulp.task('stylus', function() {
     gulp.src('./examples/*.styl')
@@ -98,11 +99,18 @@ gulp.task('build', [
     'build:full'
 ]);
 
+gulp.task('serve', function () {
+    connect.server({
+        root: './examples/_build'
+    });
+});
+
 gulp.task('examples', [
 	'stylus',
 	'js',
 	'jade',
-	'build'
+	'build',
+	'serve'
 ]);
 
 gulp.task('default', [
