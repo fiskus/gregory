@@ -28,6 +28,10 @@ React.render(
 );
 ```
 
+## Compatibility
+
+IE9+ now, IE8+ later
+
 ## Options
 
 There are three categories of options

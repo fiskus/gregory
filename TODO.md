@@ -1,7 +1,5 @@
+* IE8-compatible
 * Green theme (for Гриня)
-* Unit-testing
-* Contributing
-* More examples
-* npm-package
-* bower compatible
+* Unit-testing, maximum coverage
+* Contributing.md
 * div-wrapper for week
