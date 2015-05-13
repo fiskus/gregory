@@ -3,6 +3,7 @@
   "version": "0.2.12",
   "homepage": "https://github.com/fiskus/gregory",
   "authors": [
+    "Hanse",
     "Maxim Chervonny <fiskus@chervonny.ru>"
   ],
   "description": "React.js calendar component",
