@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-// vim: set noexpandtab:
+// vim: set sw=4 ts=4 expandtab:
 
 'use strict';
 
@@ -7,7 +7,7 @@ window.Gregory = require('./calendar.js');
 
 },{"./calendar.js":2}],2:[function(require,module,exports){
 (function (process){
-// vim: set noexpandtab:
+// vim: set sw=4 ts=4 expandtab:
 
 'use strict';
 
@@ -126,7 +126,7 @@ if (process.env.TESTING) {
 
 }).call(this,require('_process'))
 },{"./controls.js":3,"./helpers.js":5,"./moment-loader.js":6,"./month.js":7,"./react-loader.js":8,"_process":11}],3:[function(require,module,exports){
-// vim: set noexpandtab:
+// vim: set sw=4 ts=4 expandtab:
 
 'use strict';
 
@@ -196,7 +196,7 @@ module.exports = createClass();
 
 },{"./helpers.js":5,"./react-loader.js":8}],4:[function(require,module,exports){
 (function (process){
-// vim: set noexpandtab:
+// vim: set sw=4 ts=4 expandtab:
 
 'use strict';
 
@@ -358,7 +358,7 @@ if (process.env.TESTING) {
 
 }).call(this,require('_process'))
 },{"./helpers.js":5,"./react-loader.js":8,"_process":11}],5:[function(require,module,exports){
-// vim: set noexpandtab:
+// vim: set sw=4 ts=4 expandtab:
 
 'use strict';
 
@@ -440,12 +440,13 @@ module.exports = {
 };
 
 },{"array-foreach":9,"array-map":10,"object-assign":12,"object-keys":13}],6:[function(require,module,exports){
+// vim: set sw=4 ts=4 expandtab:
 // jshint undef: false
 module.exports = typeof moment === 'undefined' ? require('moment') : moment;
 
 },{"moment":undefined}],7:[function(require,module,exports){
 (function (process){
-// vim: set noexpandtab:
+// vim: set sw=4 ts=4 expandtab:
 
 'use strict';
 
@@ -618,6 +619,7 @@ if (process.env.TESTING) {
 
 }).call(this,require('_process'))
 },{"./day.js":4,"./helpers.js":5,"./moment-loader.js":6,"./react-loader.js":8,"_process":11}],8:[function(require,module,exports){
+// vim: set sw=4 ts=4 expandtab:
 // jshint undef: false
 module.exports = typeof React === 'undefined' ? require('react') : React;
 

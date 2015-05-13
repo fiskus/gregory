@@ -1,4 +1,4 @@
-// vim: set sw=4 ts=4 noexpandtab:
+// vim: set sw=4 ts=4 expandtab:
 
 'use strict';
 
