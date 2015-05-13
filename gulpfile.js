@@ -94,14 +94,15 @@ gulp.task('serve', function () {
 });
 
 gulp.task('examples', [
-	'stylus',
-	'js',
-	'jade',
-	'build',
-	'serve'
+    'stylus',
+    'js',
+    'jade',
+    'build',
+    'serve'
 ]);
 
 gulp.task('default', [
     'stylus',
-    'js'
+    'js',
+    'jade'
 ]);
