@@ -78,7 +78,7 @@ gulp.task('jade', function () {
         .pipe(gulp.dest('./examples/_build/'));
 });
 
-gulp.task('build:bare', function () {
+gulp.task('build', function () {
     browserify('./lib/external.js')
         .exclude('react')
         .exclude('moment')
@@ -86,18 +86,6 @@ gulp.task('build:bare', function () {
         .bundle()
         .pipe(fs.createWriteStream('./dist/gregory.js'));
 });
-
-gulp.task('build:full', function () {
-    browserify('./lib/external.js')
-        .transform(envify)
-        .bundle()
-        .pipe(fs.createWriteStream('./dist/gregory-react-moment.js'));
-});
-
-gulp.task('build', [
-    'build:bare',
-    'build:full'
-]);
 
 gulp.task('serve', function () {
     connect.server({
