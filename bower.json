@@ -8,7 +8,9 @@
   "description": "React.js calendar component",
   "main": "dist/gregory.js",
   "moduleType": [
-    "globals"
+    "globals",
+    "amd",
+    "node"
   ],
   "keywords": [
     "react",

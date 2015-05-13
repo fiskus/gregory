@@ -79,7 +79,7 @@ gulp.task('jade', function () {
 });
 
 gulp.task('build', function () {
-    browserify('./lib/external.js')
+    browserify('./lib/index.js')
         .exclude('react')
         .exclude('moment')
         .transform(envify)
