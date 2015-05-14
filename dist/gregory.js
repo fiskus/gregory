@@ -125,7 +125,7 @@ function createClass () {
                 ON_NEXT: this.onNext,
                 ON_PREV: this.onPrev
             });
-            return React.DOM.div({
+            return React.createElement('div', {
                     className: Helpers.getClassName(this.props)
                 },
                 React.createElement(Controls, controlsProps),
@@ -185,15 +185,15 @@ function onPrev (props) {
  * @return {ReactElement}
  */
 function createMainElement (props) {
-    var prevButton = React.DOM.div({
+    var prevButton = React.createElement('div', {
         className: Helpers.getClassName(props, 'prev'),
         onClick: onPrev(props)
     }, props.UI_TEXT_PREV);
-    var nextButton = React.DOM.div({
+    var nextButton = React.createElement('div', {
         className: Helpers.getClassName(props, 'next'),
         onClick: onNext(props)
     }, props.UI_TEXT_NEXT);
-    return React.DOM.div({
+    return React.createElement('div', {
         className: Helpers.getClassName(props, 'controls')
     }, prevButton, nextButton);
 }
@@ -325,7 +325,7 @@ function createDayNumber (props, options) {
     if (props.UI_MONTHS_NUMBER > 1 && options.isOtherMonth) {
         return null;
     } else {
-        return React.DOM.span({
+        return React.createElement('span', {
             className: Helpers.getClassName(props, 'day-number')
         }, props.DAY.date());
     }
@@ -341,7 +341,7 @@ function createMainElement (props) {
         onClick: onClick(props, options),
         className: getClassName(props, options)
     };
-    return React.DOM.div(
+    return React.createElement('div',
         divSettings,
         createDayNumber(props, options));
 }
@@ -482,7 +482,7 @@ function createWeekdaysElement (props) {
     return Helpers.mapArray(props.UI_WEEKDAYS, function(day, i) {
         var weekdayClassNames = i === 5 || i === 6 ?
                 classNames.concat('weekday-holiday') : classNames;
-        return React.DOM.div({
+        return React.createElement('div', {
             key: 'weekday-' + i,
             className: Helpers.getClassName(props, weekdayClassNames)
         }, day);
@@ -490,19 +490,19 @@ function createWeekdaysElement (props) {
 }
 
 function createCurrentDateElement (props) {
-    return React.DOM.div({
+    return React.createElement('div', {
         className: Helpers.getClassName(props, 'current-date')
     }, props.DATE.format(props.UI_FORMAT_MONTH));
 }
 
 function createWeekdaysHeader (props) {
-    return React.DOM.div({
+    return React.createElement('div', {
         className: Helpers.getClassName(props, 'headers')
     }, createCurrentDateElement(props), createWeekdaysElement(props));
 }
 
 function createClearfix (props) {
-    return React.DOM.div({
+    return React.createElement('div', {
         className: Helpers.getClassName(props, 'clearfix')
     });
 }
@@ -597,7 +597,7 @@ function createDayElement (props, day, i) {
 }
 
 function createDaysElement (props) {
-    return React.DOM.div({
+    return React.createElement('div', {
         className: Helpers.getClassName(props, 'days')
     }, Helpers.mapArray(getDays(props), function(day, i) {
         return createDayElement(props, day, i);
@@ -605,7 +605,7 @@ function createDaysElement (props) {
 }
 
 function createMainElement (props) {
-    return React.DOM.div({
+    return React.createElement('div', {
             className: Helpers.getClassName(props, 'grid')
         },
         createWeekdaysHeader(props),
