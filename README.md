@@ -12,6 +12,8 @@ There is no good and vacant names, so: calendar → Gregorian calendar → Grego
 
 ## [Examples](examples)
 
+![Screenshot](example.png)
+
 ```js
 var React = require('react');
 var Calendar = require('gregory');
