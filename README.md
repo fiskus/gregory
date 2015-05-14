@@ -63,9 +63,11 @@ There are three categories of options
 
 ```
 $ npm install
-$ gulp examples # build examples and start server
-$ gulp tdd # tests watcher
+$ npm start # build examples and start server
+$ npm test # tests and linting
 ```
+
+See [gulpfile](gulpfile.js) for more usefull tasks.
 
 * 4 spaces for indentation
 * No classes or prototypes, just functions
