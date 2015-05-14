@@ -46,20 +46,20 @@ gulp.task('watch', ['watch-stylus', 'watch-js']);
 gulp.task('dev', ['stylus', 'js', 'watch']);
 
 gulp.task('lint', function () {
-    gulp.src('./lib/*.js')
+    gulp.src(['./lib/*.js', './specs/*.js', './examples/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('cs', function () {
-    gulp.src('./lib/*.js')
+    gulp.src(['./lib/*.js', './specs/*.js', './examples/*.js'])
         .pipe(jscs())
         .pipe(stylish.combineWithHintResults())
         .pipe(jshint.reporter('default'));
 });
 
-gulp.task('test', function (done) {
+gulp.task('specs', function (done) {
     karma.start({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true
@@ -99,6 +99,12 @@ gulp.task('examples', [
     'jade',
     'build',
     'serve'
+]);
+
+gulp.task('test', [
+    'lint',
+    'cs',
+    'specs'
 ]);
 
 gulp.task('default', [

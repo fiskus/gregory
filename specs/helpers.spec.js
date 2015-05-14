@@ -46,6 +46,7 @@ describe('Helpers', function () {
     });
 
     it('assignObject', function() {
+        // jscs:disable requirePaddingNewLinesInObjects
         expect(H.assignObject({a: 1}, {b: 2}, {c: 3})).toEqual({
             a: 1,
             b: 2,

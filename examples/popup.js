@@ -37,7 +37,6 @@ function whenReady () {
     initInputs();
 }
 
-
 if (document.readyState !== 'loading') {
     whenReady();
 } else {

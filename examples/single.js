@@ -8,7 +8,7 @@ var Gregory = require('../lib/calendar.js');
 function initSingleMonthUglyCalendar () {
     var wrapper = document.getElementById('clndr');
     var settings = {
-        DATE_CURRENT: new Date('2015-02-12'),
+        DATE_CURRENT: new Date('2015-04-12'),
         UI_HAS_SIX_ROWS: false,
         UI_FORMAT_MONTH: 'MMM YYYY',
         UI_TEXT_NEXT: 'След',
@@ -26,7 +26,6 @@ function initSingleMonthUglyCalendar () {
 function whenReady () {
     initSingleMonthUglyCalendar();
 }
-
 
 if (document.readyState !== 'loading') {
     whenReady();
