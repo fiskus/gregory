@@ -4,13 +4,13 @@
 [![Davis Dependency status](https://david-dm.org/fiskus/gregory.svg)](https://david-dm.org/fiskus/gregory)
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-[React](http://facebook.github.io/react/) calendar component inspired by [CLNDR.js](http://kylestetz.github.io/CLNDR/).
+React calendar component.
 
 ## Name
 
 There is no good and vacant names, so: calendar → Gregorian calendar → Gregory.
 
-## [Examples](examples/basic/main.js)
+## [Examples](examples)
 
 ```js
 var React = require('react');
@@ -21,7 +21,7 @@ function onDatePicked(date) {
 }
 
 React.render(
-  <Calendar UI_HAS_WEEKDAYS={true}
+  <Calendar CLASSNAME="cldr"
             UI_HAS_SIX_ROWS={false}
             ON_SELECT={onDatePicked} />,
   document.getElementById('calendar')
@@ -30,7 +30,7 @@ React.render(
 
 ## Compatibility
 
-IE9+ now, IE8+ later
+IE9+ now, IE8+ with polyfills (shims alter environment, so that they aren't included).
 
 ## Options
 
@@ -61,9 +61,9 @@ There are three categories of options
 
 ## Contributing
 
-```bash
+```
 $ npm install
-$ gulp dev # build code with examples
+$ gulp examples # build examples and start server
 $ gulp tdd # tests watcher
 ```
 
