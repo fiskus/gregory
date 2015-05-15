@@ -34,6 +34,20 @@ React.render(
 
 IE9+ now, IE8+ with polyfills (shims alter environment, so that they aren't included).
 
+## Installation
+
+Gregory is available as an [npm package](https://www.npmjs.com/package/gregory):
+
+```sh
+npm install gregory
+```
+
+Also you can install it with Bower:
+
+```sh
+bower install --save gregory
+```
+
 ## Options
 
 There are three categories of options
@@ -63,10 +77,10 @@ There are three categories of options
 
 ## Contributing
 
-```
-$ npm install
-$ npm start # build examples and start server
-$ npm test # tests and linting
+```sh
+npm install
+npm start # build examples and start server
+npm test # tests and linting
 ```
 
 See [gulpfile](gulpfile.js) for more usefull tasks.
