@@ -16,11 +16,9 @@
   ],
   "license": "MIT",
   "keywords": [
-    "react",
-    "react.js",
     "calendar",
-    "react component",
-    "react calendar component"
+    "react",
+    "react-component"
   ],
   "devDependencies": {
     "browserify": "^9.0.4",
