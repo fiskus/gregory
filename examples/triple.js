@@ -3,6 +3,7 @@
 'use strict';
 
 var React = require('react');
+var moment = require('moment');
 var Gregory = require('../lib/calendar.js');
 
 function initTrilpeMonthCalendar () {
@@ -36,7 +37,11 @@ function initTrilpeMonthCalendar () {
         }]
     };
     var element = React.createElement(Gregory, settings);
-    React.render(element, wrapper);
+    var calendar = React.render(element, wrapper);
+
+    calendar.setState({
+        date: moment('2015-09-12', 'YYYY-MM-DD')
+    });
 }
 
 function whenReady () {
