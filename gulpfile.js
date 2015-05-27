@@ -22,7 +22,7 @@ gulp.task('stylus', function() {
 });
 
 gulp.task('watch-stylus', function () {
-    gulp.watch('./styl/*.styl',
+    gulp.watch('./examples/*.styl',
             ['stylus']);
 });
 
