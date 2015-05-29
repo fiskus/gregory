@@ -3,7 +3,6 @@
 'use strict';
 
 var React = require('react');
-var moment = require('moment');
 var Gregory = require('../lib/calendar.js');
 
 function initTrilpeMonthCalendar () {
@@ -21,8 +20,8 @@ function initTrilpeMonthCalendar () {
         UI_TEXT_PREV: '',
         UI_HAS_WEEKDAYS: true,
         UI_WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
-        DATE_MIN: new Date('2015-06-10'),
-        DATE_MAX: new Date('2015-07-10'),
+        DATE_MIN: new Date('2015-05-10'),
+        DATE_MAX: new Date('2015-08-10'),
         DATE_SELECTS: [{
             DATE: new Date('2015-06-14'),
             CLASSNAME: 'day-checkin'
@@ -36,12 +35,10 @@ function initTrilpeMonthCalendar () {
             CLASSNAME: 'day-range'
         }]
     };
-    var element = React.createElement(Gregory, settings);
-    var calendar = React.render(element, wrapper);
+    React.render(React.createElement(Gregory, settings), wrapper);
 
-    calendar.setState({
-        date: moment('2015-09-12', 'YYYY-MM-DD')
-    });
+    settings.DATE_CURRENT = new Date('2015-09-12');
+    React.render(React.createElement(Gregory, settings), wrapper);
 }
 
 function whenReady () {
