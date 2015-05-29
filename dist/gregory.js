@@ -91,6 +91,28 @@ function createMonths (props, state) {
     });
 }
 
+function isAbleToScrollLeft (props, currentMoment) {
+    var minDate = props.DATE_MIN;
+    if (minDate) {
+        return currentMoment.isAfter(minDate, 'month');
+    } else {
+        return true;
+    }
+}
+
+function isAbleToScrollRigtht (props, currentMoment) {
+    var maxDate = props.DATE_MAX;
+    if (props.UI_MONTHS_NUMBER && props.UI_MONTHS_NUMBER > 1) {
+        currentMoment = currentMoment.clone().add(
+                props.UI_MONTHS_NUMBER - 1, 'month');
+    }
+    if (maxDate) {
+        return currentMoment.isBefore(maxDate, 'month');
+    } else {
+        return true;
+    }
+}
+
 function createClass () {
     return React.createClass({
         displayName: 'Calendar',
@@ -101,25 +123,37 @@ function createClass () {
             return defaultProps;
         },
 
+        componentWillReceiveProps: function (newProps) {
+            this.setState({
+                date: moment(newProps.DATE_CURRENT)
+            });
+        },
+
         getInitialState: function() {
             return {
                 date: getInitialDate(this.props)
             };
         },
 
-        onNext: function() {
-            this.setState({
-                date: this.state.date.add(1, 'months')
-            });
+        onNext: function () {
+            var currentMoment = this.state.date;
+            if (isAbleToScrollRigtht(this.props, currentMoment)) {
+                this.setState({
+                    date: currentMoment.add(1, 'months')
+                });
+            }
         },
 
-        onPrev: function() {
-            this.setState({
-                date: this.state.date.subtract(1, 'months')
-            });
+        onPrev: function () {
+            var currentMoment = this.state.date;
+            if (isAbleToScrollLeft(this.props, currentMoment)) {
+                this.setState({
+                    date: currentMoment.subtract(1, 'months')
+                });
+            }
         },
 
-        render: function() {
+        render: function () {
             var controlsProps = Helpers.assignObject({}, this.props, {
                 DATE: this.state.date,
                 ON_NEXT: this.onNext,

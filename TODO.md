@@ -1,3 +1,4 @@
+* Fade out inactive buttons that switch months
 * Example (maybe fix implementation) for Sunday as first day, also i18n
 * Green theme (for Гриня)
 * Unit-testing, maximum coverage
