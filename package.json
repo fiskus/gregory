@@ -47,5 +47,10 @@
   "scripts": {
     "start": "gulp examples",
     "test": "./node_modules/.bin/gulp test"
+  },
+  "browserify": {
+    "transform": [
+      "envify"
+    ]
   }
 }
