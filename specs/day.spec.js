@@ -5,7 +5,7 @@
 // It's workaround for testing with PhantomJS
 require('../lib/bindshim.js');
 
-var DayProps = require('../lib/dayprops.js');
+var DayProps = require('../lib/daymodel.js');
 var moment = require('moment');
 
 describe('Day', function () {
@@ -98,9 +98,9 @@ describe('Day', function () {
         });
     });
 
-    xit('getClassName, basic', function () {
+    it('getClassName, basic', function () {
         // jscs:disable maximumLineLength
-        expect(DayProps.getClassName({
+        expect(DayProps.getClassNameParts({
             DAY: moment(),
             DATE_SELECTS: {},
             CLASSNAME: 'c'
@@ -110,41 +110,46 @@ describe('Day', function () {
             isHoliday: true,
             isToday: true,
             isCurrent: true
-        })).toBe('c-day c-day-unselectable c-day-other-month c-day-holiday c-day-today c-day-current');
+        })).toEqual(['day',
+                     'day-unselectable',
+                     'day-other-month',
+                     'day-holiday',
+                     'day-today',
+                     'day-current']);
 
-        expect(DayProps.getClassName({
+        expect(DayProps.getClassNameParts({
             DAY: moment(),
             DATE_SELECTS: {},
             CLASSNAME: 'c'
-        }, {})).toBe('c-day');
+        }, {})).toEqual(['day']);
 
-        expect(DayProps.getClassName({
+        expect(DayProps.getClassNameParts({
             DAY: moment('', 'YYYY-MM-DD'),
             DATE_SELECTS: {},
             CLASSNAME: 'c'
-        }, {})).toBe('c-day');
+        }, {})).toEqual(['day']);
     });
 
-    xit('getClassName, selects', function () {
-        expect(DayProps.getClassName({
+    it('getClassName, selects', function () {
+        expect(DayProps.getClassNameParts({
             DAY: moment('2015-03-30', 'YYYY-MM-DD'),
             DATE_SELECTS: {
                 '2015-03-30': 'day-select'
             },
             CLASSNAME: 'c'
-        }, {})).toBe('c-day c-day-select');
+        }, {})).toEqual(['day', 'day-select']);
 
-        expect(DayProps.getClassName({
+        expect(DayProps.getClassNameParts({
             DAY: moment('2015-03-30', 'YYYY-MM-DD'),
             DATE_SELECTS: {
                 '2015-03-01': 'day-select'
             },
             CLASSNAME: 'c'
-        }, {})).toBe('c-day');
+        }, {})).toEqual(['day']);
     });
 
-    xit('getClassName, ranges', function () {
-        expect(DayProps.getClassName({
+    it('getClassName, ranges', function () {
+        expect(DayProps.getClassNameParts({
             DAY: moment('2015-03-20', 'YYYY-MM-DD'),
             DATE_SELECTS: {},
             DATE_RANGES: [{
@@ -153,9 +158,9 @@ describe('Day', function () {
                 CLASSNAME: 'day-range'
             }],
             CLASSNAME: 'c'
-        }, {})).toBe('c-day c-day-range');
+        }, {})).toEqual(['day', 'day-range']);
 
-        expect(DayProps.getClassName({
+        expect(DayProps.getClassNameParts({
             DAY: moment('2015-03-30', 'YYYY-MM-DD'),
             DATE_SELECTS: {},
             DATE_RANGES: [{
@@ -164,6 +169,6 @@ describe('Day', function () {
                 CLASSNAME: 'day-range'
             }],
             CLASSNAME: 'c'
-        }, {})).toBe('c-day');
+        }, {})).toEqual(['day']);
     });
 });

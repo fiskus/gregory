@@ -40,9 +40,6 @@ function getWeekdays (props) {
 }
 
 export default function Weekdays (props) {
-    if (!props.UI_HAS_WEEKDAYS) {
-        return null;
-    }
     return (
         <div className={Helpers.getClassName(props, 'weekdays')}>
             {getWeekdays(props).map((day, i) => createWeekday(props, day, i))}

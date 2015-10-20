@@ -75,6 +75,16 @@ var Calendar = (function (_React$Component) {
     };
 
     Calendar.prototype.render = function render() {
+        var _this = this;
+
+        var months = _helpersJs2['default'].getRange(1, this.props.UI_MONTHS_NUMBER).map(function (i) {
+            var monthProps = {
+                DATE: _this.state.date.clone().add(i - 1, 'month'),
+                DATE_SELECTS: parseSelects(_this.props),
+                key: i
+            };
+            return _react2['default'].createElement(_monthJsx2['default'], _extends({}, _this.props, monthProps));
+        });
         return _react2['default'].createElement(
             'div',
             { className: _helpersJs2['default'].getClassName(this.props) },
@@ -82,7 +92,7 @@ var Calendar = (function (_React$Component) {
                 DATE: this.state.date,
                 ON_NEXT: this.onNext.bind(this),
                 ON_PREV: this.onPrev.bind(this) })),
-            createMonths(this.props, this.state)
+            months
         );
     };
 
@@ -119,15 +129,6 @@ Calendar.defaultProps = {
     UI_TEXT_PREV: 'Prev',
     WEEK_OFFSET: 0
 };
-
-function createMonths(props, state) {
-    var range = _helpersJs2['default'].getRange(1, props.UI_MONTHS_NUMBER);
-    return range.map(function (i) {
-        var date = state.date.clone().add(i - 1, 'month');
-        var selects = parseSelects(props);
-        return _react2['default'].createElement(_monthJsx2['default'], _extends({}, props, { DATE: date, DATE_SELECTS: selects, key: i }));
-    });
-}
 
 function getInitialDate(props) {
     // NOTE: there is DEFAUT_DATE and DATE
@@ -244,7 +245,6 @@ module.exports = exports['default'];
 'use strict';
 
 exports.__esModule = true;
-exports.getClassName = getClassName;
 exports['default'] = Day;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -257,28 +257,26 @@ var _helpersJs = require('./helpers.js');
 
 var _helpersJs2 = _interopRequireDefault(_helpersJs);
 
-var _daypropsJs = require('./dayprops.js');
+var _daymodelJs = require('./daymodel.js');
 
-var _daypropsJs2 = _interopRequireDefault(_daypropsJs);
+var _daymodelJs2 = _interopRequireDefault(_daymodelJs);
 
-var classNamesDict = {
-    isUnselectable: 'day-unselectable',
-    isOtherMonth: 'day-other-month',
-    isHoliday: 'day-holiday',
-    isToday: 'day-today',
-    isCurrent: 'day-current'
-};
+function Day(props) {
+    var options = _daymodelJs2['default'].getProps(props);
+    var css = _helpersJs2['default'].getClassName(props, 'day-number');
 
-/**
- * @param {ReactProps} props
- * @param {Object} options
- * @returns {Function|null}
- */
-function onClick(props, options) {
+    var dayNumber = undefined;
+    if (props.UI_MONTHS_NUMBER <= 1 && !options.isOtherMonth) {
+        dayNumber = _react2['default'].createElement(
+            'span',
+            { className: css('day-number') },
+            props.DAY.date()
+        );
+    }
+
+    var clickHandler = undefined;
     if (options.isUnselectable) {
-        return null;
-    } else {
-        return function (event) {
+        clickHandler = function (event) {
             if (event.nativeEvent.stopImmediatePropagation) {
                 event.nativeEvent.stopImmediatePropagation();
             }
@@ -288,55 +286,19 @@ function onClick(props, options) {
             }
         };
     }
-}
 
-function getClassName(props, options) {
-    var classNames = ['day'];
+    var className = css(getClassNameParts(props, options));
 
-    _helpersJs2['default'].forEachInObject(options, function (isEnabled, option) {
-        if (isEnabled) {
-            classNames.push(classNamesDict[option]);
-        }
-    });
-
-    var ymd = props.DAY.format('YYYY-MM-DD');
-    var selectedClassname = props.DATE_SELECTS[ymd];
-    if (selectedClassname) {
-        classNames.push(selectedClassname);
-    }
-
-    if (props.DATE_RANGES) {
-        props.DATE_RANGES.forEach(function (range) {
-            if (props.DAY.isBetween(range.FROM, range.TO, 'day')) {
-                classNames.push(range.CLASSNAME);
-            }
-        });
-    }
-
-    return _helpersJs2['default'].getClassName(props, classNames);
-}
-
-function createDayNumber(props, options) {
-    if (props.UI_MONTHS_NUMBER > 1 && options.isOtherMonth) {
-        return null;
-    } else {
-        return _react2['default'].createElement('span', {
-            className: _helpersJs2['default'].getClassName(props, 'day-number')
-        }, props.DAY.date());
-    }
-}
-
-function Day(props) {
-    var options = _daypropsJs2['default'](props);
     return _react2['default'].createElement(
         'div',
-        { className: getClassName(props, options),
-            onClick: onClick(props, options) },
-        createDayNumber(props, options)
+        { className: className, onClick: clickHandler },
+        dayNumber
     );
 }
 
-},{"./dayprops.js":4,"./helpers.js":6,"react":168}],4:[function(require,module,exports){
+module.exports = exports['default'];
+
+},{"./daymodel.js":4,"./helpers.js":6,"react":168}],4:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -345,7 +307,14 @@ exports.isUnselectable = isUnselectable;
 exports.isHoliday = isHoliday;
 exports.isToday = isToday;
 exports.isCurrent = isCurrent;
-exports['default'] = DayProps;
+exports['default'] = getProps;
+exports.getClassNameParts = getClassNameParts;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _helpersJs = require('./helpers.js');
+
+var _helpersJs2 = _interopRequireDefault(_helpersJs);
 
 function isOtherMonth(props) {
     return props.POSITION !== 0;
@@ -386,7 +355,7 @@ function isCurrent(props) {
     return props.DAY.isSame(props.DATE_CURRENT, 'day');
 }
 
-function DayProps(props) {
+function getProps(props) {
     return {
         isUnselectable: isUnselectable(props),
         isOtherMonth: isOtherMonth(props),
@@ -396,7 +365,41 @@ function DayProps(props) {
     };
 }
 
-},{}],5:[function(require,module,exports){
+var classNamesDict = {
+    isUnselectable: 'day-unselectable',
+    isOtherMonth: 'day-other-month',
+    isHoliday: 'day-holiday',
+    isToday: 'day-today',
+    isCurrent: 'day-current'
+};
+
+function getClassNameParts(props, options) {
+    var classNames = ['day'];
+
+    _helpersJs2['default'].forEachInObject(options, function (isEnabled, option) {
+        if (isEnabled) {
+            classNames.push(classNamesDict[option]);
+        }
+    });
+
+    var ymd = props.DAY.format('YYYY-MM-DD');
+    var selectedClassname = props.DATE_SELECTS[ymd];
+    if (selectedClassname) {
+        classNames.push(selectedClassname);
+    }
+
+    if (props.DATE_RANGES) {
+        props.DATE_RANGES.forEach(function (range) {
+            if (props.DAY.isBetween(range.FROM, range.TO, 'day')) {
+                classNames.push(range.CLASSNAME);
+            }
+        });
+    }
+
+    return classNames;
+}
+
+},{"./helpers.js":6}],5:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -598,6 +601,12 @@ var _daysJs2 = _interopRequireDefault(_daysJs);
 
 function Month(props) {
     var css = _helpersJs2['default'].getClassName.bind(null, props);
+
+    var weekdays = undefined;
+    if (props.UI_HAS_WEEKDAYS) {
+        weekdays = _react2['default'].createElement(_weekdaysJsx2['default'], props);
+    }
+
     return _react2['default'].createElement(
         'div',
         { className: css('grid') },
@@ -609,7 +618,7 @@ function Month(props) {
                 { className: css('current-date') },
                 props.DATE.format(props.UI_FORMAT_MONTH)
             ),
-            _weekdaysJsx2['default'](props)
+            weekdays
         ),
         _react2['default'].createElement(
             'div',
@@ -680,9 +689,6 @@ function getWeekdays(props) {
 }
 
 function Weekdays(props) {
-    if (!props.UI_HAS_WEEKDAYS) {
-        return null;
-    }
     return _react2['default'].createElement(
         'div',
         { className: _helpersJs2['default'].getClassName(props, 'weekdays') },

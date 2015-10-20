@@ -45,13 +45,21 @@ export default class Calendar extends React.Component {
     }
 
     render () {
+        let months = Helpers.getRange(1, this.props.UI_MONTHS_NUMBER).map(i => {
+            let monthProps = {
+                DATE: this.state.date.clone().add(i - 1, 'month'),
+                DATE_SELECTS: parseSelects(this.props),
+                key: i
+            }
+            return <Month {...this.props} {...monthProps} />;
+        });
         return (
             <div className={Helpers.getClassName(this.props)}>
                 <Controls {...this.props}
                           DATE={this.state.date}
                           ON_NEXT={this.onNext.bind(this)}
                           ON_PREV={this.onPrev.bind(this)} />
-                {createMonths(this.props, this.state)}
+                {months}
             </div>
         );
     }
@@ -85,15 +93,6 @@ Calendar.defaultProps = {
     UI_TEXT_PREV: 'Prev',
     WEEK_OFFSET: 0
 };
-
-function createMonths (props, state) {
-    var range = Helpers.getRange(1, props.UI_MONTHS_NUMBER);
-    return range.map(i => {
-        let date = state.date.clone().add(i - 1, 'month');
-        let selects = parseSelects(props);
-        return <Month {...props} DATE={date} DATE_SELECTS={selects} key={i} />;
-    });
-}
 
 function getInitialDate (props) {
     // NOTE: there is DEFAUT_DATE and DATE
