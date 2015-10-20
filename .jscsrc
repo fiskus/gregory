@@ -7,7 +7,6 @@
     "disallowMultipleVarDecl": true,
     "disallowNewlineBeforeBlockStatements": true,
     "disallowOperatorBeforeLineBreak": ["."],
-    "disallowSpaceAfterObjectKeys": true,
     "disallowSpaceAfterPrefixUnaryOperators": true,
     "disallowSpaceBeforePostfixUnaryOperators": true,
     "disallowTrailingComma": true,
