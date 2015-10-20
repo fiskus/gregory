@@ -2,9 +2,8 @@ import React from 'react';
 
 import Helpers from './helpers.js';
 import Weekdays from './weekdays.jsx';
-import Day from './day.js';
-import {getDays} from './days.js';
-
+import Day from './day.jsx';
+import getDays from './days.js';
 
 export default function Month (props) {
     let css = Helpers.getClassName.bind(null, props);
