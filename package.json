@@ -53,6 +53,12 @@
   },
   "browserify": {
     "transform": [
+      [
+        "babelify",
+        {
+          "loose": "all"
+        }
+      ],
       "envify"
     ]
   }
