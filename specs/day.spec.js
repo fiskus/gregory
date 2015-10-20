@@ -89,7 +89,6 @@ describe('Day', function () {
         var props = {
             DAY: moment('30-04-2015', 'DD-MM-YYYY')
         };
-        console.log(DayProps);
         expect(DayProps.default(props)).toEqual({
             isUnselectable: jasmine.any(Boolean),
             isOtherMonth: jasmine.any(Boolean),
