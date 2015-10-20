@@ -42,12 +42,6 @@ Gregory is available as an [npm package](https://www.npmjs.com/package/gregory):
 npm install gregory
 ```
 
-Also you can install it with Bower:
-
-```sh
-bower install --save gregory
-```
-
 ## Options
 
 There are three categories of options
