@@ -3,6 +3,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Gregory = require('../lib/calendar.js');
 
 function initPopup (input, wrapper) {
@@ -16,7 +17,7 @@ function initPopup (input, wrapper) {
                 input.value = date.format('DD MMMM YYYY');
             }
         });
-        React.render(element, wrapper);
+        ReactDOM.render(element, wrapper);
     });
 }
 

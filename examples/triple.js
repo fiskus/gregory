@@ -3,6 +3,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Gregory = require('../lib/calendar.js');
 
 function initTrilpeMonthCalendar () {
@@ -35,10 +36,10 @@ function initTrilpeMonthCalendar () {
             CLASSNAME: 'day-range'
         }]
     };
-    React.render(React.createElement(Gregory, settings), wrapper);
+    ReactDOM.render(React.createElement(Gregory, settings), wrapper);
 
     settings.DATE_CURRENT = new Date('2015-09-12');
-    React.render(React.createElement(Gregory, settings), wrapper);
+    ReactDOM.render(React.createElement(Gregory, settings), wrapper);
 }
 
 function whenReady () {

@@ -3,6 +3,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Gregory = require('../lib/calendar.js');
 
 function initSingleMonthUglyCalendar () {
@@ -20,7 +21,7 @@ function initSingleMonthUglyCalendar () {
         UI_WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
     };
     var element = React.createElement(Gregory, settings);
-    React.render(element, wrapper);
+    ReactDOM.render(element, wrapper);
 }
 
 function whenReady () {
