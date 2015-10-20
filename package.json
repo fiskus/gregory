@@ -42,7 +42,7 @@
     "array-map": "0.0.0",
     "moment": "^2.10.6",
     "object-assign": "^4.0.1",
-    "object-keys": "^1.0.3",
+    "object-keys": "^1.0.9",
     "react": "^0.14",
     "react-dom": "^0.14.0"
   },
