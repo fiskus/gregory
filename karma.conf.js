@@ -2,6 +2,7 @@
 
 'use strict';
 
+var babelify = require('babelify');
 var envify = require('envify/custom');
 
 // Karma configuration
@@ -70,7 +71,7 @@ module.exports = function(config) {
         singleRun: false,
 
         browserify: {
-            transform: [envify({
+            transform: [babelify, envify({
                 TESTING: true
             })]
         }

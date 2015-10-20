@@ -8,7 +8,6 @@
   "esnext": true,
   "freeze": true,
   "funcscope": true,
-  "globalstrict": true,
   "immed": true,
   "jasmine": true,
   "latedef": true,
@@ -23,7 +22,6 @@
   "notypeof": true,
   "quotmark": "single",
   "shadow": "inner",
-  "strict": true,
   "undef": true,
   "unused": true,
   "withstmt": true
