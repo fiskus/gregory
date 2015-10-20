@@ -3,6 +3,8 @@
 import React from 'react';
 import moment from 'moment';
 
+require('moment/locale/ru.js');
+
 import Controls from './controls.jsx';
 import Helpers from './helpers.js';
 import Month from './month.jsx';
@@ -10,6 +12,8 @@ import Month from './month.jsx';
 export default class Calendar extends React.Component {
     constructor (props) {
         super(props);
+
+        moment.locale(props.LANG);
 
         this.state = {
             date: getInitialDate(props)
@@ -57,6 +61,7 @@ Calendar.displayName = 'Gregory';
 
 Calendar.propTypes = {
     CLASSNAME: React.PropTypes.string,
+    LANG: React.PropTypes.string,
     ON_SELECT: React.PropTypes.func,
     UI_FORMAT_MONTH: React.PropTypes.string,
     UI_HAS_SIX_ROWS: React.PropTypes.bool,
@@ -70,6 +75,7 @@ Calendar.propTypes = {
 
 Calendar.defaultProps = {
     CLASSNAME: 'clndr',
+    LANG: 'ru',
     ON_SELECT: null,
     UI_FORMAT_MONTH: 'MMMM YYYY',
     UI_HAS_SIX_ROWS: false,
@@ -77,7 +83,6 @@ Calendar.defaultProps = {
     UI_MONTHS_NUMBER: 1,
     UI_TEXT_NEXT: 'Next',
     UI_TEXT_PREV: 'Prev',
-    UI_WEEKDAYS: moment.weekdaysMin(),
     WEEK_OFFSET: 0
 };
 
