@@ -77,12 +77,6 @@ gulp.task('jade', function () {
         .pipe(gulp.dest('./examples/_build/'));
 });
 
-gulp.task('build', function () {
-    browserify('./lib/index.js')
-        .bundle()
-        .pipe(fs.createWriteStream('./dist/gregory.js'));
-});
-
 gulp.task('serve', function () {
     connect.server({
         root: './examples/_build'
@@ -93,7 +87,6 @@ gulp.task('examples', [
     'stylus',
     'js',
     'jade',
-    'build',
     'serve'
 ]);
 
