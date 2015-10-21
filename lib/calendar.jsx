@@ -5,6 +5,7 @@ import moment from 'moment';
 
 require('moment/locale/ru.js');
 
+import * as CalendarModel from './calendarmodel.js';
 import Controls from './controls.jsx';
 import Helpers from './helpers.js';
 import Month from './month.jsx';
@@ -16,7 +17,7 @@ export default class Calendar extends React.Component {
         moment.locale(props.LANG);
 
         this.state = {
-            date: getInitialDate(props)
+            date: CalendarModel.getInitialDate(props)
         };
     }
 
@@ -28,7 +29,7 @@ export default class Calendar extends React.Component {
 
     onNext () {
         var currentMoment = this.state.date;
-        if (isAbleToScrollRigtht(this.props, currentMoment)) {
+        if (CalendarModel.isAbleToScrollRigtht(this.props, currentMoment)) {
             this.setState({
                 date: currentMoment.add(1, 'months')
             });
@@ -37,7 +38,7 @@ export default class Calendar extends React.Component {
 
     onPrev () {
         var currentMoment = this.state.date;
-        if (isAbleToScrollLeft(this.props, currentMoment)) {
+        if (CalendarModel.isAbleToScrollLeft(this.props, currentMoment)) {
             this.setState({
                 date: currentMoment.subtract(1, 'months')
             });
@@ -48,7 +49,7 @@ export default class Calendar extends React.Component {
         let months = Helpers.getRange(1, this.props.UI_MONTHS_NUMBER).map(i => {
             let monthProps = {
                 DATE: this.state.date.clone().add(i - 1, 'month'),
-                DATE_SELECTS: parseSelects(this.props),
+                DATE_SELECTS: CalendarModel.parseSelects(this.props),
                 key: i
             }
             return <Month {...this.props} {...monthProps} />;
@@ -93,42 +94,3 @@ Calendar.defaultProps = {
     UI_TEXT_PREV: 'Prev',
     WEEK_OFFSET: 0
 };
-
-function getInitialDate (props) {
-    // NOTE: there is DEFAUT_DATE and DATE
-    // TODO: leave only one date DEFAUT_DATE or DATE
-    return props.DATE_CURRENT ? moment(props.DATE_CURRENT) : moment();
-}
-
-function parseSelects (props) {
-    var internalSelects = {};
-    if (props.DATE_SELECTS) {
-        props.DATE_SELECTS.forEach(select => {
-            var ymd = moment(select.DATE).format('YYYY-MM-DD');
-            internalSelects[ymd] = select.CLASSNAME;
-        });
-    }
-    return internalSelects;
-}
-
-function isAbleToScrollLeft (props, currentMoment) {
-    var minDate = props.DATE_MIN;
-    if (minDate) {
-        return currentMoment.isAfter(minDate, 'month');
-    } else {
-        return true;
-    }
-}
-
-function isAbleToScrollRigtht (props, currentMoment) {
-    var maxDate = props.DATE_MAX;
-    if (props.UI_MONTHS_NUMBER && props.UI_MONTHS_NUMBER > 1) {
-        currentMoment = currentMoment.clone().add(
-                props.UI_MONTHS_NUMBER - 1, 'month');
-    }
-    if (maxDate) {
-        return currentMoment.isBefore(maxDate, 'month');
-    } else {
-        return true;
-    }
-}
