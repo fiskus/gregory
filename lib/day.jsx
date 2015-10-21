@@ -15,7 +15,7 @@ export default function Day (props) {
     }
 
     let clickHandler;
-    if (options.isUnselectable) {
+    if (!options.isUnselectable) {
         clickHandler = event => {
             if (event.nativeEvent.stopImmediatePropagation) {
                 event.nativeEvent.stopImmediatePropagation();
