@@ -29,7 +29,7 @@ export default class Calendar extends React.Component {
 
     onNext () {
         var currentMoment = this.state.date;
-        if (CalendarModel.isAbleToScrollRigtht(this.props, currentMoment)) {
+        if (CalendarModel.isAbleToScrollRight(this.props, currentMoment)) {
             this.setState({
                 date: currentMoment.add(1, 'months')
             });

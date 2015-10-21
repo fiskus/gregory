@@ -3,6 +3,7 @@
 import React from 'react';
 
 import Helpers from './helpers.js';
+import {isAbleToScrollLeft, isAbleToScrollRight} from './calendarmodel.js';
 
 /**
  * @param {Event} event
@@ -34,12 +35,18 @@ function onPrev (event, props) {
 
 export default function Controls (props) {
     let css = Helpers.getClassName.bind(null, props);
+    let prevClassName = isAbleToScrollLeft(props, props.DATE) ?
+            css('prev') : css(['prev', 'prev-inactive']);
+    let nextClassName = isAbleToScrollRight(props, props.DATE) ?
+            css('next') : css(['next', 'next-inactive']);
     return (
         <div className={css('controls')}>
-            <div className={css('prev')} onClick={event => onPrev(event, props)}>
+            <div className={prevClassName}
+                 onClick={event => onPrev(event, props)}>
                 {props.UI_TEXT_PREV}
             </div>
-            <div className={css('next')} onClick={event => onNext(event, props)}>
+            <div className={nextClassName}
+                 onClick={event => onNext(event, props)}>
                 {props.UI_TEXT_NEXT}
             </div>
         </div>
