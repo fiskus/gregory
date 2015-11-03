@@ -49,7 +49,6 @@ export default class Calendar extends React.Component {
         let months = Helpers.getRange(1, this.props.UI_MONTHS_NUMBER).map(i => {
             let monthProps = {
                 DATE: this.state.date.clone().add(i - 1, 'month'),
-                DATE_SELECTS: CalendarModel.parseSelects(this.props),
                 key: i
             }
             return <Month {...this.props} {...monthProps} />;
@@ -72,6 +71,8 @@ Calendar.propTypes = {
     CLASSNAME: React.PropTypes.string,
     LANG: React.PropTypes.string,
     ON_SELECT: React.PropTypes.func,
+    UI_DAY_CLASSNAME: React.PropTypes.func,
+    UI_DAY_RENDER: React.PropTypes.func,
     UI_FORMAT_MONTH: React.PropTypes.string,
     UI_HAS_SIX_ROWS: React.PropTypes.bool,
     UI_HAS_WEEKDAYS: React.PropTypes.bool,
@@ -86,6 +87,8 @@ Calendar.defaultProps = {
     CLASSNAME: 'clndr',
     LANG: 'ru',
     ON_SELECT: null,
+    UI_DAY_CLASSNAME: null,
+    UI_DAY_RENDER: null,
     UI_FORMAT_MONTH: 'MMMM YYYY',
     UI_HAS_SIX_ROWS: false,
     UI_HAS_WEEKDAYS: false,

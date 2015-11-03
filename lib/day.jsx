@@ -9,10 +9,8 @@ export default function Day (props) {
     let options = DayModel.default(props);
     let css = Helpers.getClassName.bind(null, props);
 
-    let dayNumber;
-    if (props.UI_MONTHS_NUMBER === 1 || !options.isOtherMonth) {
-        dayNumber = <span className={css('day-number')}>{props.DAY.date()}</span>
-    }
+    let dayNumber = createDayNumber(props, options, css);
+    let classNames = createClassNames(props, options, css);
 
     let clickHandler;
     if (!options.isUnselectable) {
@@ -27,11 +25,39 @@ export default function Day (props) {
         }
     }
 
-    let className = css(DayModel.getClassNameParts(props, options));
-
     return (
-        <div className={className} onClick={clickHandler}>
+        <div className={css(classNames)} onClick={clickHandler}>
             {dayNumber}
         </div>
     );
+}
+
+function createDayNumber (props, options, css) {
+    if (props.UI_DAY_RENDER) {
+        let userRenderer = props.UI_DAY_RENDER(props.DAY);
+        if (userRenderer) {
+            return userRenderer;
+        }
+    }
+
+    return defaultDayRenderer(props, options, css);
+}
+
+function defaultDayRenderer (props, options, css) {
+    let date = props.DAY.date();
+
+    if (props.UI_MONTHS_NUMBER === 1 || !options.isOtherMonth) {
+        return <span className={css('day-number')}>{date}</span>;
+    } else {
+        return date;
+    }
+}
+
+function createClassNames (props, options) {
+    let classNames = DayModel.getClassNameParts(props, options);
+    if (props.UI_DAY_CLASSNAME) {
+        let moreClasses = props.UI_DAY_CLASSNAME(props.DAY);
+        return [].concat.apply(classNames, moreClasses);
+    }
+    return classNames;
 }

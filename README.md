@@ -56,8 +56,6 @@ There are three categories of options
 * `DATE_CURRENT` is default/current date for calendar
 * All dates above `DATE_MAX` are disabled/unselectable
 * All dates behind `DATE_MIN` are disabled/unselectable
-* `DATE_RANGES` is array of hashes a la {FROM: new Date(), TO: new Date(), CLASSNAME: 'top-kek'}
-* `DATE_SELECTS` is array of hashes a la {DATE: new Date(), CLASSNAME: 'lol'}
 
 ### UI options
 
