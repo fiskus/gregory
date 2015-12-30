@@ -9,11 +9,7 @@
   "main": "./lib/index.js",
   "author": "Hanse",
   "contributors": [
-    {
-      "email": "fiskus@chervonny.ru",
-      "name": "Maxim Chervonny",
-      "url" : "http://chervonny.ru/en"
-    }
+      "Maxim Chervonny <fiskus@chervonny.ru> (http://chervonny.ru/en)"
   ],
   "license": "MIT",
   "keywords": [
