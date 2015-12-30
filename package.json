@@ -39,8 +39,9 @@
     "phantomjs": "^1.9.18"
   },
   "dependencies": {
-    "moment": "^2.10.6",
-    "object-assign": "^4.0.1",
+    "moment": "^2.10.6"
+  },
+  "peerDependencies": {
     "react": "^0.14",
     "react-dom": "^0.14.0"
   },

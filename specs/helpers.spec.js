@@ -29,15 +29,6 @@ describe('Helpers', function () {
         expect(H.getRange(3, 6)).toEqual([3, 4, 5, 6]);
     });
 
-    it('assignObject', function () {
-        // jscs:disable requirePaddingNewLinesInObjects
-        expect(H.assignObject({a: 1}, {b: 2}, {c: 3})).toEqual({
-            a: 1,
-            b: 2,
-            c: 3
-        });
-    });
-
     it('forEachInObject', function () {
         var obj = {
             a: 1,
