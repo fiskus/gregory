@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/fiskus/gregory.svg?branch=master)](https://travis-ci.org/fiskus/gregory)
 [![Davis Dependency status](https://david-dm.org/fiskus/gregory.svg)](https://david-dm.org/fiskus/gregory)
-[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
+[![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
 
 React calendar component.
 

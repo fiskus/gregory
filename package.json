@@ -1,6 +1,6 @@
 {
   "name": "gregory",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "React.js calendar component.",
   "repository": {
     "type": "git",
@@ -10,8 +10,9 @@
   "author": "Hanse",
   "contributors": [
     {
+      "email": "fiskus@chervonny.ru",
       "name": "Maxim Chervonny",
-      "email": "fiskus@chervonny.ru"
+      "url" : "http://chervonny.ru/en"
     }
   ],
   "license": "MIT",
@@ -21,8 +22,8 @@
     "react-component"
   ],
   "devDependencies": {
-    "babelify": "^6.3.0",
-    "browserify": "^11.2.0",
+    "babelify": "^6.4.0",
+    "browserify": "^12.0.1",
     "envify": "^3.4.0",
     "gulp": "^3.9.0",
     "gulp-connect": "^2.2.0",
@@ -42,8 +43,8 @@
     "moment": "^2.10.6"
   },
   "peerDependencies": {
-    "react": "^0.14",
-    "react-dom": "^0.14.0"
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
   },
   "scripts": {
     "start": "gulp examples",
