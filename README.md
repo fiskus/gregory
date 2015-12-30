@@ -32,7 +32,9 @@ React.render(
 
 ## Compatibility
 
-IE9+ now, IE8+ with polyfills (shims alter environment, so that they aren't included).
+In theory: IE9+ now, IE8+ with polyfills (shims alter environment, so that they aren't included).
+
+In practice: tested on modern browsers only.
 
 ## Installation
 
@@ -59,6 +61,8 @@ There are three categories of options
 
 ### UI options
 
+* `UI_DAY_CLASSNAME` sets function for adding classNames to day-cell
+* `UI_DAY_RENDER` sets middleware function for day-cell render
 * `UI_FORMAT_MONTH` sets format of current month at header ([See moment.js documentation](http://momentjs.com/docs/#/displaying/format/))
 * `UI_HAS_SIX_ROWS` sets showing of six rows always even for February
 * `UI_HAS_WEEKDAYS` sets visibility of header with weekdays captions
