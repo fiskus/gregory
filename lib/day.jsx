@@ -53,6 +53,7 @@ function defaultDayRenderer (props, options, css) {
     }
 }
 
+// TODO: move it to props
 function createClassNames (props, options) {
     let classNames = DayModel.getClassNameParts(props, options);
     if (props.UI_DAY_CLASSNAME) {

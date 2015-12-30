@@ -119,56 +119,14 @@ describe('Day', function () {
 
         expect(DayProps.getClassNameParts({
             DAY: moment(),
-            DATE_SELECTS: {},
             CLASSNAME: 'c'
         }, {})).toEqual(['day']);
 
         expect(DayProps.getClassNameParts({
             DAY: moment('', 'YYYY-MM-DD'),
-            DATE_SELECTS: {},
             CLASSNAME: 'c'
         }, {})).toEqual(['day']);
     });
 
-    it('getClassName, selects', function () {
-        expect(DayProps.getClassNameParts({
-            DAY: moment('2015-03-30', 'YYYY-MM-DD'),
-            DATE_SELECTS: {
-                '2015-03-30': 'day-select'
-            },
-            CLASSNAME: 'c'
-        }, {})).toEqual(['day', 'day-select']);
-
-        expect(DayProps.getClassNameParts({
-            DAY: moment('2015-03-30', 'YYYY-MM-DD'),
-            DATE_SELECTS: {
-                '2015-03-01': 'day-select'
-            },
-            CLASSNAME: 'c'
-        }, {})).toEqual(['day']);
-    });
-
-    it('getClassName, ranges', function () {
-        expect(DayProps.getClassNameParts({
-            DAY: moment('2015-03-20', 'YYYY-MM-DD'),
-            DATE_SELECTS: {},
-            DATE_RANGES: [{
-                FROM: new Date('2015-03-10'),
-                TO: new Date('2015-03-30'),
-                CLASSNAME: 'day-range'
-            }],
-            CLASSNAME: 'c'
-        }, {})).toEqual(['day', 'day-range']);
-
-        expect(DayProps.getClassNameParts({
-            DAY: moment('2015-03-30', 'YYYY-MM-DD'),
-            DATE_SELECTS: {},
-            DATE_RANGES: [{
-                FROM: new Date('2015-03-10'),
-                TO: new Date('2015-03-20'),
-                CLASSNAME: 'day-range'
-            }],
-            CLASSNAME: 'c'
-        }, {})).toEqual(['day']);
-    });
+    // TODO: tests for UI_DAY_CLASSNAME
 });
