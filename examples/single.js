@@ -4,7 +4,7 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Gregory = require('../lib/calendar.jsx');
+var Gregory = require('../lib/calendar.jsx').default;
 
 function initSingleMonthUglyCalendar () {
     var wrapper = document.getElementById('clndr');

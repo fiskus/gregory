@@ -4,9 +4,9 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Gregory = require('../lib/calendar.jsx');
+var Gregory = require('../lib/calendar.jsx').default;
 
-function initTrilpeMonthCalendar () {
+function initTripleMonthCalendar () {
     var wrapper = document.getElementById('calendar');
     var settings = {
         CLASSNAME: 'calendar',
@@ -43,7 +43,7 @@ function initTrilpeMonthCalendar () {
 }
 
 function whenReady () {
-    initTrilpeMonthCalendar();
+    initTripleMonthCalendar();
 }
 
 if (document.readyState !== 'loading') {

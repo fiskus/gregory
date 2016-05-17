@@ -4,7 +4,7 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Gregory = require('../lib/calendar.jsx');
+var Gregory = require('../lib/calendar.jsx').default;
 
 function initPopup (input, wrapper) {
     input.addEventListener('focus', function() {

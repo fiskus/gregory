@@ -8,7 +8,7 @@ var fs = require('fs');
 var stylus = require('gulp-stylus');
 var browserify = require('browserify');
 var jshint = require('gulp-jshint');
-var karma = require('karma').server;
+var karma = require('karma').Server;
 var jscs = require('gulp-jscs');
 var stylish = require('gulp-jscs-stylish');
 var jade = require('gulp-jade');
@@ -59,10 +59,11 @@ gulp.task('cs', function () {
 });
 
 gulp.task('specs', function (done) {
-    karma.start({
+    var karmaServer = new karma({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true
     }, done);
+    karmaServer.start();
 });
 
 gulp.task('tdd', function (done) {
@@ -79,6 +80,7 @@ gulp.task('jade', function () {
 
 gulp.task('serve', function () {
     connect.server({
+        port: 8888,
         root: './examples/_build'
     });
 });
