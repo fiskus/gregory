@@ -76,7 +76,7 @@ There are three categories of options
 ```sh
 npm install
 npm start # build examples and start server
-npm test # tests and linting
+QT_QPA_PLATFORM='' npm test # tests and linting
 ```
 
 See [gulpfile](gulpfile.js) for more usefull tasks.

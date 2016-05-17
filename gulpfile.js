@@ -11,7 +11,7 @@ var jshint = require('gulp-jshint');
 var karma = require('karma').Server;
 var jscs = require('gulp-jscs');
 var stylish = require('gulp-jscs-stylish');
-var jade = require('gulp-jade');
+var jade = require('gulp-pug');
 var connect = require('gulp-connect');
 
 gulp.task('stylus', function () {
